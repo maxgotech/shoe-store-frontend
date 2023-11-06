@@ -4,16 +4,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path:'client',
-    loadChildren:()=>
-      import('./clients/feature/client-shell/client-shell.module').then(
-        (m)=>m.ClientShellModule
-      ),
-    
+    loadChildren: async () =>
+    (await  import('./clients/feature/client-shell/client-shell.module')).ClientShellModule
   },
   {
     path: 'home',
-    loadChildren: () =>
-      import('./home/feature/home.module').then((m) => m.HomeModule),
+    loadChildren: async () =>
+    (await import('./home/feature/home.module')).HomeModule
   },
   {
     path: '',

@@ -1,4 +1,4 @@
-import { Component,ChangeDetectionStrategy } from '@angular/core';
+import { Component,ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +7,10 @@ import { Component,ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+
+  @Input()
+  loggedIn: boolean = false;
+
   index = 0;
  
     readonly items = [

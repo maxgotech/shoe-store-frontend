@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
-
+import { RouterModule } from '@angular/router';
+import { HomePageRoutingModule } from 'src/app/home/feature/home-routing.module';
 
 
 @NgModule({
@@ -9,7 +10,9 @@ import { HeaderComponent } from './header.component';
     HeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    HomePageRoutingModule
   ],
   exports:[HeaderComponent]
 })

@@ -13,7 +13,13 @@
             <span>Связь</span>
         </a>
     </nav>
-        <a class="profile">
+        <a class="profile" *ngIf="loggedIn;else unlogged">
             <span>Профиль</span>
         </a>
+        <ng-template #unlogged>
+            <a class="profile" >
+                <span [routerLink]="['/login']" >Войти</span>
+            </a>
+        </ng-template>
 </div>
+<router-outlet></router-outlet>
