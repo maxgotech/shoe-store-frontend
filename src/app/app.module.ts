@@ -6,19 +6,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClientInfoComponent } from './clients/feature/client-info/client-info.component';
-import { ClientAnalyticsComponent } from './clients/feature/client-analytics/client-analytics.component';
-import { ClientCartComponent } from './clients/feature/client-cart/client-cart.component';
-
+import { HeaderModule } from "./shared/ui/header/header.module";
 @NgModule({
-  declarations: [AppComponent, ClientInfoComponent, ClientAnalyticsComponent, ClientCartComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     TuiRootModule,
     TuiDialogModule,
-    TuiAlertModule
+    TuiAlertModule,
+    HeaderModule
 ],
   providers: [{provide:{TUI_SANITIZER,RouteReuseStrategy}, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]
