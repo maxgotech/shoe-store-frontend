@@ -7,8 +7,19 @@ const routes: Routes = [
     loadChildren:()=>
       import('./clients/feature/client-shell/client-shell.module').then(
         (m)=>m.ClientShellModule
-      )
-  }
+      ),
+    
+  },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./home/feature/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
