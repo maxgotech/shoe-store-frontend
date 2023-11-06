@@ -1,0 +1,9 @@
+{
+    "/MarkupApi": {
+      "target": "https://api-markup-service.onrender.com",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
