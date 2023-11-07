@@ -1,1 +1,43 @@
-<p>login</p>
+<form  [formGroup]="LoginForm" (ngSubmit)="onSubmit()" >
+
+    <div class="heading centering">
+        <span>Авторизация</span>
+    </div>
+
+    <p>
+        <tui-input
+            formControlName="mail"
+        >
+            Введите почту @mail
+            <span class="tui-required"></span>
+            <input
+                placeholder="mail@mail.ru"
+                tuiTextfield
+            />
+        </tui-input>
+    </p>
+    
+    <p>
+        <tui-input-password
+        formControlName="password"
+        class="tui-space_top-2"
+    >
+        Введите пароль
+        <input
+            placeholder="Выбирайте надежный пароль!"
+            tuiTextfield
+        />
+    </tui-input-password>
+    </p>
+    <p class="centering buttton-container">
+        <button
+        tuiButton
+        type="button"
+        class="tui-space_right-3 tui-space_bottom-3"
+        (click)="onSubmit()"
+    >
+        Войти
+    </button>
+    </p>
+  
+  </form>

@@ -6,6 +6,10 @@ import { TuiAutoFocusModule } from '@taiga-ui/cdk';
 import { TuiInputModule } from '@taiga-ui/kit';
 import { tuiGenerateDialogableRoute } from '@taiga-ui/kit';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TuiInputPasswordModule } from '@taiga-ui/kit';
+import { TuiButtonModule } from '@taiga-ui/core';
+
 @NgModule({
   declarations: [
     LoginComponent
@@ -13,10 +17,16 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     TuiAutoFocusModule,
+    TuiButtonModule,
+    TuiInputPasswordModule,
     TuiInputModule,
     RouterModule.forChild([tuiGenerateDialogableRoute(LoginComponent)]),
   ],
   exports:[LoginComponent]
 })
-export class LoginModule { }
+export class LoginModule {
+  constructor(){}
+
+}
