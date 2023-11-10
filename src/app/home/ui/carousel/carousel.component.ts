@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.less']
+  styleUrls: ['./carousel.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarouselComponent {
   index = 0;
@@ -15,6 +16,4 @@ export class CarouselComponent {
     'mens-leather-dress-shoes.jpg',
     'rooftopper-looking-down.jpg',
 ];
-
-
 }
