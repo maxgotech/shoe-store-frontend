@@ -1,9 +1,18 @@
 {
-    "/MarkupApi": {
+    "/markupApi": {
       "target": "https://api-markup-service.onrender.com",
-      "secure": false,
+      "secure": true,
       "pathRewrite": {
-        "^/api": ""
-      }
+        "^/markupApi": ""
+      },
+      "changeOrigin": true
+    },
+    "/purchaseApi": {
+      "target": "https://api-purchase-service.onrender.com",
+      "secure": true,
+      "pathRewrite": {
+        "^/purchaseApi": ""
+      },
+      "changeOrigin": true
     }
-  }
+}
