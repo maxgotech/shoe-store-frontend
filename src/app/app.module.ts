@@ -7,11 +7,10 @@ import { RouteReuseStrategy } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderModule } from "./shared/ui/header/header.module";
-import { RegComponent } from './shared/feature/reg/reg.component';
 import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent, RegComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
