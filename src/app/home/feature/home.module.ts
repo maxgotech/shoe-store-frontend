@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { CarouselModule } from '../ui/carousel/carousel.module';
 import { HomePageRoutingModule } from './home-routing.module';
 import { HeaderModule } from 'src/app/shared/ui/header/header.module';
+import { ProductCardsModule } from '../ui/productCards/product-cards.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { HeaderModule } from 'src/app/shared/ui/header/header.module';
     CommonModule,
     HomePageRoutingModule,
     CarouselModule,
-    HeaderModule
+    HeaderModule,
+    ProductCardsModule
   ],
   exports:[HomeComponent]
 })
