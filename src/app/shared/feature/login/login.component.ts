@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { MarkupService } from '../../data-access/markup/markup.service';
 import { lastValueFrom } from 'rxjs';
 import { TuiValidationError } from '@taiga-ui/cdk';
+import { AuthService } from '../../data-access/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,37 +12,44 @@ import { TuiValidationError } from '@taiga-ui/cdk';
 })
 export class LoginComponent {
 
-  constructor(private formBuilder:FormBuilder, private markupService:MarkupService){}
+  constructor(private formBuilder: FormBuilder, private authService: AuthService,private router:Router) { }
 
-  loading:boolean=false
+  loading: boolean = false
   LoginForm = this.formBuilder.group({
-    mail: new FormControl('',Validators.required),
+    mail: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
   });
 
-  ResponseData:any
+  ResponseData: any
 
   async onSubmit() {
-    this.enabled=false
-    this.loading=true
-    const data = this.markupService.log(this.LoginForm.value.mail!,this.LoginForm.value.password!)
+    this.enabled = false
+    this.loading = true
+    const data = this.authService.login(this.LoginForm.value.mail!, this.LoginForm.value.password!)
     const response = await lastValueFrom(data)
     this.ResponseData = response
-    if(this.ResponseData.success==0){
-      this.enabled=true
+    console.log(this.ResponseData)
+    if (this.ResponseData.success == 0) {
+      this.enabled = true
       console.log('error')
-    } else{
-      console.log(this.ResponseData)
+      this.loading = false
+    } else {
+      this.loading = false
+      await this.delay(1000);
+      this.router.navigate([''])
     }
-    this.loading=false
   }
 
   enabled = false;
- 
-    error = new TuiValidationError('Неверные пароль или почта');
- 
-    get computedError(): TuiValidationError | null {
-        return this.enabled ? this.error : null;
-    }
+
+  error = new TuiValidationError('Неверные почта или пароль');
+
+  get computedError(): TuiValidationError | null {
+    return this.enabled ? this.error : null;
+  }
+
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
 }
