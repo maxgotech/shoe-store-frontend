@@ -1,5 +1,5 @@
+<app-header (loggedOut)="logout($event)" [loggedIn]='loggedIn'></app-header>
 <div class="container">
-    <app-header (loggedOut)="logout($event)" [loggedIn]='loggedIn' ></app-header>
     <app-carousel></app-carousel>
     <app-product-cards [products]='products'></app-product-cards>
 </div>
