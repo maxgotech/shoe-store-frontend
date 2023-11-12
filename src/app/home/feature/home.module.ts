@@ -5,6 +5,7 @@ import { CarouselModule } from '../ui/carousel/carousel.module';
 import { HomePageRoutingModule } from './home-routing.module';
 import { HeaderModule } from 'src/app/shared/ui/header/header.module';
 import { ProductCardsModule } from '../ui/productCards/product-cards.module';
+import { FooterModule } from 'src/app/shared/ui/footer/footer.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProductCardsModule } from '../ui/productCards/product-cards.module';
     HomePageRoutingModule,
     CarouselModule,
     HeaderModule,
-    ProductCardsModule
+    ProductCardsModule,
+    FooterModule
   ],
   exports:[HomeComponent]
 })
