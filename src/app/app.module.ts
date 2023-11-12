@@ -3,11 +3,12 @@ import { TuiRootModule, TuiDialogModule, TuiAlertModule, TUI_SANITIZER } from "@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderModule } from "./shared/ui/header/header.module";
 import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorInterceptor } from "./utils/interceptors/http-error.interceptor";
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,10 @@ import { HttpClientModule } from "@angular/common/http";
     HeaderModule,
     HttpClientModule
 ],
-  providers: [{provide:{TUI_SANITIZER,RouteReuseStrategy}, useClass: NgDompurifySanitizer}],
+  providers: [
+    {provide: TUI_SANITIZER, useClass: NgDompurifySanitizer, multi : true},
+    {provide: HTTP_INTERCEPTORS,useClass:HttpErrorInterceptor, multi : true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
