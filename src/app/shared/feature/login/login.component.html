@@ -29,15 +29,24 @@
         />
     </tui-input-password>
     </p>
-    <p class="centering buttton-container">
-        <button
-        tuiButton
-        type="button"
-        class="tui-space_right-3 tui-space_bottom-3"
-        (click)="onSubmit()"
+
+    <p class="buttton-container">
+        <tui-loader
+        class="loader"
+        [inheritColor]="true"
+        [overlay]="true"
+        [showLoader]=loading
     >
-        Войти
-    </button>
+        <button
+            tuiButton
+            type="button"
+            class="tui-space_right-3 tui-space_bottom-3"
+            (click)="onSubmit()"
+        >
+            Войти
+        </button>
+    </tui-loader>
     </p>
+    <tui-error class="error" [error]="computedError"></tui-error>
   
   </form>

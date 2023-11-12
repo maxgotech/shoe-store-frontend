@@ -9,7 +9,8 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiInputPasswordModule } from '@taiga-ui/kit';
 import { TuiButtonModule } from '@taiga-ui/core';
-
+import { TuiLoaderModule } from '@taiga-ui/core';
+import { TuiErrorModule } from '@taiga-ui/core';
 @NgModule({
   declarations: [
     LoginComponent
@@ -22,6 +23,8 @@ import { TuiButtonModule } from '@taiga-ui/core';
     TuiButtonModule,
     TuiInputPasswordModule,
     TuiInputModule,
+    TuiLoaderModule,
+    TuiErrorModule,
     RouterModule.forChild([tuiGenerateDialogableRoute(LoginComponent)]),
   ],
   exports:[LoginComponent]
