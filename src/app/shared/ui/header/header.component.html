@@ -13,13 +13,28 @@
             <span>Связь</span>
         </a>
     </nav>
-        <a class="profile" *ngIf="loggedIn;else unlogged">
-            <span>Профиль</span>
-        </a>
-        <ng-template #unlogged>
-            <a class="profile" >
-                <span [routerLink]="['/login']" >Войти</span>
+    <a class="profile" *ngIf="loggedIn;else unlogged">
+        <tui-hosted-dropdown
+        tuiDropdownAlign="center"
+        tuiDropdownHover
+        [tuiDropdown]="content"
+        >
+            <a class="dropdown-host" tuiHostedDropdownHost>
+                <span>Профиль</span>
             </a>
-        </ng-template>
+            <ng-template #content>
+                <tui-data-list>
+                    <a tuiOption><span>Option 1</span></a>
+                    <a tuiOption><span>Option 2</span></a>
+                    <a (click)="logout()" tuiOption><span>Выйти</span></a>
+                </tui-data-list>
+            </ng-template>
+        </tui-hosted-dropdown>
+    </a>
+    <ng-template #unlogged>
+        <a class="profile">
+            <span [routerLink]="['/login']">Войти</span>
+        </a>
+    </ng-template>
 </div>
 <router-outlet></router-outlet>
