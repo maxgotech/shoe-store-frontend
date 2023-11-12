@@ -1,5 +1,45 @@
-<ng-container *ngFor="let product of products">
-    <div>
-        {{product.name}}
+<body class="sides">
+    <div *ngIf="!loaded" class="row">
+      <div class="column" *ngFor="let item of [].constructor(12); let i = index">
+        <div class="card is-loading">
+          <div class="imageframe">
+            <img class="picture">
+          </div>
+          <div class="header">
+            <div>
+                <a class="title"></a>
+                <p class="name"></p>
+              </div>
+          </div>
+          <dl class="post-info">
+            <div class="price"></div>
+          </dl>
+        </div>
+      </div>
     </div>
-</ng-container>
+    
+    <div *ngIf="loaded" class="row">
+      <div class="column" *ngFor="let product of products">
+          <div class="card">
+            <div class="imageframe">
+              <img class="picture" src='/assets/images/products{{product.picture_path}}'>
+            </div>
+            <div class="header">
+              <div>
+                  <a class="title">
+                  {{product.name}}
+                  </a>
+                  <p class="name">{{product.desc}}</p>
+              </div>
+            </div>
+            <dl class="post-info">
+              <div class="price">
+                <dt *ngIf="product.price!=null; else free">{{product.price}} ₽</dt>
+                <ng-template #free > Бесплатно </ng-template>
+              </div>
+            </dl>
+          </div>
+      </div>
+    </div>
+  </body>
+  
