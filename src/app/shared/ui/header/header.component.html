@@ -20,11 +20,11 @@
         [tuiDropdown]="content"
         >
             <a class="dropdown-host" tuiHostedDropdownHost>
-                <span>Профиль</span>
+                <span>Личный кабинет</span>
             </a>
             <ng-template #content>
                 <tui-data-list>
-                    <a tuiOption><span>Option 1</span></a>
+                    <a [routerLink]="['/client/info']" tuiOption><span>Профиль</span></a>
                     <a tuiOption><span>Option 2</span></a>
                     <a (click)="logout()" tuiOption><span>Выйти</span></a>
                 </tui-data-list>
