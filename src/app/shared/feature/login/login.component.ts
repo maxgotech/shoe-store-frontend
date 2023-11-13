@@ -37,6 +37,9 @@ export class LoginComponent {
       this.loading = false
       await this.delay(1000);
       this.router.navigate([''])
+      .then(() => {
+        window.location.reload();
+      });
     }
   }
 
