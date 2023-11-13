@@ -8,18 +8,13 @@ const routes: Routes = [
     (await  import('./clients/feature/client-shell/client-shell.module')).ClientShellModule
   },
   {
-    path: 'home',
+    path: '',
     loadChildren: async () =>
     (await import('./home/feature/home.module')).HomeModule
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
-  {
     path:'**',
-    redirectTo:'home'
+    redirectTo:''
   }
 ];
 
