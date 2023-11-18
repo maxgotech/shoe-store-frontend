@@ -83,10 +83,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "shoe-store-frontend:build:production"
+              "buildTarget": "shoe-store-frontend:build:production"
             },
             "development": {
-              "browserTarget": "shoe-store-frontend:build:development"
+              "buildTarget": "shoe-store-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "shoe-store-frontend:build"
+            "buildTarget": "shoe-store-frontend:build"
           }
         },
         "test": {
