@@ -1,10 +1,13 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-product-cards',
-  templateUrl: './product-cards.component.html',
-  styleUrls: ['./product-cards.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-product-cards',
+    templateUrl: './product-cards.component.html',
+    styleUrls: ['./product-cards.component.less'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgIf, NgFor]
 })
 export class ProductCardsComponent implements OnChanges {
   @Input() products:any

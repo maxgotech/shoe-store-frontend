@@ -1,0 +1,15 @@
+{
+    "angular-schematics.schematicsDefaultOptions":{
+        "angular-component": {
+            "flat": true,
+            "style":"less",
+            "skipPathSubfolder": true
+        },
+        "angular-*": {
+            "externalTemplate": true
+        },
+        "angular-page": {
+            "skipPathSubfolder": true
+        }
+    }
+}

@@ -1,10 +1,16 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { TuiDataListModule } from '@taiga-ui/core';
+import { TuiDropdownModule } from '@taiga-ui/core/directives/dropdown';
+import { NgIf } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.less'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [RouterLink, NgIf, TuiDropdownModule, TuiDataListModule, RouterOutlet]
 })
 export class HeaderComponent {
 

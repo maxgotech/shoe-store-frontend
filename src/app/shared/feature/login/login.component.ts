@@ -1,14 +1,19 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { lastValueFrom } from 'rxjs';
 import { TuiValidationError } from '@taiga-ui/cdk';
 import { AuthService } from '../../data-access/auth/auth.service';
 import { Router } from '@angular/router';
+import { TuiLoaderModule } from '@taiga-ui/core/components/loader';
+import { TuiPrimitiveTextfieldModule, TuiButtonModule, TuiErrorModule } from '@taiga-ui/core';
+import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.less']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.less'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, TuiInputModule, TuiPrimitiveTextfieldModule, TuiInputPasswordModule, TuiLoaderModule, TuiButtonModule, TuiErrorModule]
 })
 export class LoginComponent {
 
