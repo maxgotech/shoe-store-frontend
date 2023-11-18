@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TuiItemModule } from '@taiga-ui/cdk';
-import { NgFor } from '@angular/common';
+import { NgFor, NgOptimizedImage } from '@angular/common';
 import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit';
 
 @Component({
@@ -9,7 +9,7 @@ import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit';
     styleUrls: ['./carousel.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [TuiCarouselModule, NgFor, TuiItemModule, TuiPaginationModule]
+    imports: [TuiCarouselModule, NgFor, TuiItemModule, TuiPaginationModule,NgOptimizedImage]
 })
 export class CarouselComponent {
   index = 0;

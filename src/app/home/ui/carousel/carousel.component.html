@@ -6,14 +6,15 @@
 >
     <ng-container *ngFor="let item of items;let i = index">
         <img
+            style="position: relative;"
             *tuiItem
             alt=''
             draggable="false"
-            class="item"
-            src="/assets/images/{{ item }}"
+            class="item images"
+            ngSrc="/assets/images/{{ item }}"
             [class.item_active]="i === index + 1"
-            width="100%"
-            height="100%"
+            fill
+            priority
         />
     </ng-container >
 </tui-carousel>
