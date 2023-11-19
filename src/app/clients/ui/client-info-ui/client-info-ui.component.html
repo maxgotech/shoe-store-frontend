@@ -1,1 +1,24 @@
-<p>client-info-ui works!</p>
+<div class="page">
+    <h1>
+        Данные профиля
+    </h1>
+    <form class="b-form" [formGroup]="UserForm">
+        <tui-input formControlName="mail">
+            Ваша почта
+            <input tuiTextfield type="email" />
+        </tui-input>
+    </form>
+    <form class="b-form" [formGroup]="UserForm">
+        <tui-input formControlName="name">
+            Имя
+            <input tuiTextfield/>
+        </tui-input>
+    </form>
+    <form class="b-form" [formGroup]="UserForm">
+        <tui-input formControlName="surname">
+            Фамилия
+            <input tuiTextfield />
+        </tui-input>
+    </form>
+    <button>Сохранить</button>
+</div>
