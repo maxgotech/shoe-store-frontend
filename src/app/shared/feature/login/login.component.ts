@@ -13,6 +13,7 @@ import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.less'],
     standalone: true,
+    providers:[AuthService],
     imports: [FormsModule, ReactiveFormsModule, TuiInputModule, TuiPrimitiveTextfieldModule, TuiInputPasswordModule, TuiLoaderModule, TuiButtonModule, TuiErrorModule]
 })
 export class LoginComponent {
