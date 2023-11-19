@@ -25,7 +25,9 @@
             <ng-template #content>
                 <tui-data-list>
                     <a [routerLink]="['/client/info']" tuiOption><span>Профиль</span></a>
-                    <a tuiOption><span>Option 2</span></a>
+                    <a [routerLink]="['/client/cart']" tuiOption><span>Корзина</span></a>
+                    <a [routerLink]="['/client/products']" tuiOption><span>Товары</span></a>
+                    <a [routerLink]="['/client/sales']" tuiOption><span>Продажи</span></a>
                     <a (click)="logout()" tuiOption><span>Выйти</span></a>
                 </tui-data-list>
             </ng-template>
