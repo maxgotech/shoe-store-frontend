@@ -11,9 +11,10 @@ import { NavBarUiComponent } from '../../ui/nav-bar-ui/nav-bar-ui.component';
   standalone: true,
   imports: [HeaderComponent, ClientInfoUiComponent, FooterUiComponent,NavBarUiComponent]
 })
-export class ClientInfoComponent {
+export class ClientInfoComponent  {
   constructor(private router: Router, private clientsService: ClientsService) {
-    console.log(this.clientsService.ClientInfo())
   }
+
+  user:any = this.clientsService.ClientInfo()
 
 }
