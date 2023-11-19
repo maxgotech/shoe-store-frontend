@@ -8,7 +8,7 @@ import {
   HttpResponse
 } from '@angular/common/http';
 
-import { Observable, EMPTY, throwError, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
@@ -32,8 +32,8 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         // If you want to return the error on the upper level:
         //return throwError(error);
 
-        
-        return of(new HttpResponse({body:{success:0}}));
+
+        return of(new HttpResponse({ body: { success: 0 } }));
       })
     );
   }
