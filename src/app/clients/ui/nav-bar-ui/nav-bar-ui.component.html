@@ -1,0 +1,14 @@
+<nav>
+	<a [routerLink]="['/client/info']" >
+		<span routerLinkActive="nav-active"  [routerLinkActiveOptions]="{ exact: true }" >Личная информация</span>
+	</a>
+	<a [routerLink]="['/client/cart']" >
+		<span routerLinkActive="nav-active"  [routerLinkActiveOptions]="{ exact: true }" >Корзина</span>
+	</a>
+	<a [routerLink]="['/client/products']">
+		<span routerLinkActive="nav-active"  [routerLinkActiveOptions]="{ exact: true }" >Товары</span>
+	</a>
+	<a [routerLink]="['/client/sales']" >
+		<span routerLinkActive="nav-active"  [routerLinkActiveOptions]="{ exact: true }" >Продажи</span>
+	</a>
+</nav>

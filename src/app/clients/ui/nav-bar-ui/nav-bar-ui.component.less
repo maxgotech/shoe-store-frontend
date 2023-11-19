@@ -1,0 +1,35 @@
+@import url(/src/theme/variables.less); //theme
+:host {
+  display: block;
+}
+
+nav {
+  position: sticky;
+  top: 120px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 40px;
+  height: 300px;
+}
+
+a {
+  width: fit-content;
+  text-decoration: none;
+}
+
+span {
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  color: @BlackText;
+}
+
+.nav-active {
+  color: var(--tui-link-night);
+}
+
+span:hover {
+  color: var(--tui-link);
+}
