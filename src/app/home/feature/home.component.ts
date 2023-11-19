@@ -11,7 +11,6 @@ import { HeaderComponent } from 'src/app/shared/feature/header/header.component'
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.less'],
     standalone: true,
-    providers:[HomeService],
     imports: [HeaderComponent, CarouselComponent, ProductCardsComponent, FooterUiComponent]
 })
 export class HomeComponent implements OnInit {
