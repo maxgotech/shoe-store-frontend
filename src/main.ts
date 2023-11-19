@@ -11,13 +11,13 @@ import { appRoutes } from './app/app-routes.component';
 
 
 bootstrapApplication(AppComponent, {
-    providers: [
-        importProvidersFrom(BrowserModule, TuiRootModule, TuiDialogModule, TuiAlertModule),
-        { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-        provideRouter(appRoutes),
-        provideAnimations(),
-        provideHttpClient(withInterceptorsFromDi())
-    ]
+  providers: [
+    importProvidersFrom(BrowserModule, TuiRootModule, TuiDialogModule, TuiAlertModule),
+    { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    provideRouter(appRoutes),
+    provideAnimations(),
+    provideHttpClient(withInterceptorsFromDi())
+  ]
 })
   .catch(err => console.error(err));

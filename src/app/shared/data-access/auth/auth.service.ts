@@ -4,16 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 export interface User {
-  success:number
-  message:string
-  data:data
+  success: number
+  message: string
+  data: data
 }
 
 interface data {
-  id:number
-  name:string
-  surname:string
-  mail:string
+  id: number
+  name: string
+  surname: string
+  mail: string
 }
 
 @Injectable({
@@ -35,7 +35,7 @@ export class AuthService {
     return this.http.post<any>('/markupApi/auth/log', { mail, password }).pipe(
       map(user => {
         // login successful if there's a success==1 in response
-        if (user && user.success==1) {
+        if (user && user.success == 1) {
           // store user details in local
           // storage to keep user logged in between page refreshes
 
@@ -60,8 +60,8 @@ export class AuthService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  register(name:string, surname:string, mail: string, password: string) {
-		return this.http.post<any>('/markupApi/auth/reg', { name , surname , mail, password });
-	}
+  register(name: string, surname: string, mail: string, password: string) {
+    return this.http.post<any>('/markupApi/auth/reg', { name, surname, mail, password });
+  }
 
 }

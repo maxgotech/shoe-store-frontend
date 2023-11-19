@@ -6,7 +6,7 @@ import { AuthService } from '../../data-access/auth/auth.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  providers:[AuthService],
+  providers: [AuthService],
   imports: [
     CommonModule,
     HeaderUiComponent
@@ -16,19 +16,19 @@ import { AuthService } from '../../data-access/auth/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
-  constructor(private authService:AuthService){}
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.loggedIn = !!this.authService.currentUserValue;
   }
 
-  loggedIn:boolean = false
+  loggedIn: boolean = false
 
-  logout(flag:boolean){
-    if(flag==true){
+  logout(flag: boolean) {
+    if (flag == true) {
       this.authService.logout()
       window.location.reload();
     }
   }
 
- }
+}
