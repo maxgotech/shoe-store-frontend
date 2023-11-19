@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HeaderUiComponent } from '../../ui/header-ui/header-ui.component';
-import { AuthService } from '../../data-access/auth/auth.service';
+import { AuthService } from '../../data-access/auth.service';
 
 @Component({
   selector: 'app-header',

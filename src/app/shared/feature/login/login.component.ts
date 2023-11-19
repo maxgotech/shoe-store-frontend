@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { lastValueFrom } from 'rxjs';
 import { TuiValidationError } from '@taiga-ui/cdk';
-import { AuthService } from '../../data-access/auth/auth.service';
+import { AuthService } from '../../data-access/auth.service';
 import { Router } from '@angular/router';
 import { TuiLoaderModule } from '@taiga-ui/core/components/loader';
 import { TuiPrimitiveTextfieldModule, TuiButtonModule, TuiErrorModule } from '@taiga-ui/core';
