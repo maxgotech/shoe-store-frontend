@@ -2,17 +2,18 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from 
 import { TuiDataListModule } from '@taiga-ui/core';
 import { TuiDropdownModule } from '@taiga-ui/core/directives/dropdown';
 import { NgIf } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.less'],
+    selector: 'app-header-ui',
+    templateUrl: './header-ui.component.html',
+    styleUrls: ['./header-ui.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
     imports: [RouterLink, NgIf, TuiDropdownModule, TuiDataListModule, RouterOutlet]
 })
-export class HeaderComponent {
+export class HeaderUiComponent {
+  constructor(private router: Router,private route: ActivatedRoute) {}
 
   @Input() loggedIn: boolean = false;
 
@@ -30,6 +31,10 @@ export class HeaderComponent {
 
   logout(){
     this.loggedOut.emit(true)
+  }
+
+  login(){
+    this.router.navigate(['login'], { relativeTo: this.route });
   }
 
 }
