@@ -15,6 +15,6 @@ export class ClientInfoComponent  {
   constructor(private router: Router, private clientsService: ClientsService) {
   }
 
-  user:any = this.clientsService.ClientInfo()
+  user = this.clientsService.ClientInfo()
 
 }

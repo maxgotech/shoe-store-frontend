@@ -3,12 +3,10 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HeaderUiComponent } from '../../ui/header-ui/header-ui.component';
 import { AuthService } from '../../data-access/auth.service';
 import { Router } from '@angular/router';
-import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  providers: [AuthService],
   imports: [
     CommonModule,
     HeaderUiComponent
