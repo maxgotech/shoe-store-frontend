@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { lastValueFrom } from 'rxjs';
 import { TuiValidationError } from '@taiga-ui/cdk';
@@ -15,7 +15,8 @@ import { POLYMORPHEUS_CONTEXT } from '@tinkoff/ng-polymorpheus';
     styleUrls: ['./login.component.less'],
     standalone: true,
     providers:[AuthService],
-    imports: [FormsModule, ReactiveFormsModule, TuiInputModule, TuiPrimitiveTextfieldModule, TuiInputPasswordModule, TuiLoaderModule, TuiButtonModule, TuiErrorModule]
+    imports: [FormsModule, ReactiveFormsModule, TuiInputModule, TuiPrimitiveTextfieldModule, TuiInputPasswordModule, TuiLoaderModule, TuiButtonModule, TuiErrorModule],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
 

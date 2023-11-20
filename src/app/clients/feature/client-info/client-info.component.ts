@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FooterUiComponent } from '../../../shared/ui/footer-ui/footer-ui.component';
 import { ClientInfoUiComponent } from '../../ui/client-info-ui/client-info-ui.component';
@@ -9,6 +9,7 @@ import { NavBarUiComponent } from '../../ui/nav-bar-ui/nav-bar-ui.component';
   templateUrl: './client-info.component.html',
   styleUrls: ['./client-info.component.less'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [HeaderComponent, ClientInfoUiComponent, FooterUiComponent,NavBarUiComponent]
 })
 export class ClientInfoComponent  {

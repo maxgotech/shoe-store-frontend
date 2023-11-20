@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { AuthService } from '../../data-access/auth.service';
 import { FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
@@ -14,7 +14,8 @@ import { POLYMORPHEUS_CONTEXT } from '@tinkoff/ng-polymorpheus';
   styleUrls: ['./reg.component.less'],
   standalone:true,
   providers:[AuthService],
-  imports: [FormsModule, ReactiveFormsModule, TuiInputModule, TuiPrimitiveTextfieldModule, TuiInputPasswordModule, TuiLoaderModule, TuiButtonModule, TuiErrorModule]
+  imports: [FormsModule, ReactiveFormsModule, TuiInputModule, TuiPrimitiveTextfieldModule, TuiInputPasswordModule, TuiLoaderModule, TuiButtonModule, TuiErrorModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegComponent {
   constructor(@Inject(POLYMORPHEUS_CONTEXT) private readonly context: TuiDialogContext<boolean>, private formBuilder: FormBuilder, private authService: AuthService,private router:Router) { }

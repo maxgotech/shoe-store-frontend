@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TuiInputModule } from '@taiga-ui/kit';
 @Component({
@@ -6,7 +6,8 @@ import { TuiInputModule } from '@taiga-ui/kit';
   templateUrl: './client-info-ui.component.html',
   styleUrls: ['./client-info-ui.component.less'],
   standalone: true,
-  imports: [TuiInputModule, ReactiveFormsModule]
+  imports: [TuiInputModule, ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClientInfoUiComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}

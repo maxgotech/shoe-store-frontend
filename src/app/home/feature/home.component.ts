@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { HomeService } from '../data-access/home.service';
 import { lastValueFrom, take } from 'rxjs';
 import { FooterUiComponent } from '../../shared/ui/footer-ui/footer-ui.component';
@@ -18,7 +18,8 @@ interface Cart {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less'],
   standalone: true,
-  imports: [HeaderComponent, CarouselComponent, ProductCardsComponent, FooterUiComponent]
+  imports: [HeaderComponent, CarouselComponent, ProductCardsComponent, FooterUiComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
   constructor(@Inject(TuiAlertService) private readonly alerts: TuiAlertService, private authService: AuthService, private homeService: HomeService) { }
