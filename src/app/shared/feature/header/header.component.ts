@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HeaderUiComponent } from '../../ui/header-ui/header-ui.component';
 import { AuthService } from '../../data-access/auth.service';
+import { Router } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +18,7 @@ import { AuthService } from '../../data-access/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router:Router) { }
 
   ngOnInit(): void {
     this.loggedIn = !!this.authService.currentUserValue;
@@ -24,10 +26,13 @@ export class HeaderComponent implements OnInit {
 
   loggedIn: boolean = false
 
-  logout(flag: boolean) {
+  async logout(flag: boolean) {
     if (flag == true) {
       this.authService.logout()
-      window.location.reload();
+      this.router.navigate([''])
+      .then(() => {
+        window.location.reload();
+      });
     }
   }
 

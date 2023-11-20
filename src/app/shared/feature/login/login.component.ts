@@ -41,7 +41,6 @@ export class LoginComponent {
       this.loading = false
     } else {
       this.loading = false
-      await this.delay(1000);
       this.router.navigate([''])
       .then(() => {
         window.location.reload();
@@ -55,10 +54,6 @@ export class LoginComponent {
 
   get computedError(): TuiValidationError | null {
     return this.enabled ? this.error : null;
-  }
-
-  delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
 }
