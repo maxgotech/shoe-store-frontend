@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
     <app-carousel></app-carousel>
-    <app-product-cards [products]='products'></app-product-cards>
+    <app-product-cards (AddCart)="addToCart($event)" [products]='products'></app-product-cards>
 </div>
 <app-footer-ui></app-footer-ui>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common';
 
 @Component({
@@ -10,10 +10,16 @@ import { NgIf, NgFor } from '@angular/common';
     imports: [NgIf, NgFor]
 })
 export class ProductCardsComponent implements OnChanges {
-  @Input() products:any
-  constructor(){
 
+  @Input() products:any
+
+  @Output() AddCart = new EventEmitter<number>();
+
+  AddToCart(id:number){
+    this.AddCart.emit(id)
   }
+
+  constructor(){}
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['products'].currentValue!=null){

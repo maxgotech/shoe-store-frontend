@@ -32,4 +32,8 @@ export class HomeService {
     return this.http.get<any>('/purchaseApi/api/products',{params:queryParams});
   }
 
+  addToCart(productId:number, userId:number){
+    return this.http.post('purchaseApi/api/cart',{productId,userId})
+  }
+
 }
