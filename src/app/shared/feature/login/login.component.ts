@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { lastValueFrom } from 'rxjs';
 import { TuiValidationError } from '@taiga-ui/cdk';
 import { AuthService } from '../../data-access/auth.service';
 import { Router } from '@angular/router';
 import { TuiLoaderModule } from '@taiga-ui/core/components/loader';
-import { TuiPrimitiveTextfieldModule, TuiButtonModule, TuiErrorModule } from '@taiga-ui/core';
+import { TuiPrimitiveTextfieldModule, TuiButtonModule, TuiErrorModule,TuiDialogContext } from '@taiga-ui/core';
 import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
+import {POLYMORPHEUS_CONTEXT} from '@tinkoff/ng-polymorpheus';
 
 @Component({
     selector: 'app-login',
@@ -18,7 +19,7 @@ import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
 })
 export class LoginComponent {
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService,private router:Router) { }
+  constructor(@Inject(POLYMORPHEUS_CONTEXT) private readonly context: TuiDialogContext<boolean>,private formBuilder: FormBuilder, private authService: AuthService,private router:Router) { }
 
   loading: boolean = false
   LoginForm = this.formBuilder.group({
@@ -28,10 +29,10 @@ export class LoginComponent {
 
   ResponseData: any
 
-  async onSubmit(Form:FormGroup) {
+  async onSubmit(LoginForm:FormGroup) {
     this.enabled = false
     this.loading = true
-    const data = this.authService.login(Form.value.mail!,Form.value.password!)
+    const data = this.authService.login(LoginForm.value.mail,LoginForm.value.password)
     const response = await lastValueFrom(data)
     this.ResponseData = response
     console.log(this.ResponseData)
@@ -54,6 +55,11 @@ export class LoginComponent {
 
   get computedError(): TuiValidationError | null {
     return this.enabled ? this.error : null;
+  }
+
+  openReg(){
+    this.context.completeWith(true);
+    this.router.navigate(['/reg'])
   }
 
 }
