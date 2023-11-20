@@ -1,1 +1,24 @@
-<p>client-cart-ui works!</p>,
+<div class="page">
+    <h1 class="cart">Корзина:</h1>
+    <tui-loader [overlay]="true" [showLoader]=loading>
+        <ng-container *ngIf="loading;else loaded">
+            <div class="loader"></div>
+        </ng-container>
+        <ng-template #loaded>
+            <ng-container *ngIf="cartStatus;else empty">
+                <div *ngFor="let product of productDto.products">
+                    <div class="card">
+                        <div class="img-container">
+                            <img class="pic" src='/assets/images/products{{product.picture_path}}'>
+                        </div>
+                        <span>{{product?.name}}</span>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #empty>
+                <h1>Корзина пуста</h1>
+            </ng-template>
+        </ng-template>
+    </tui-loader>
+    <h1 class="price">Стоимость: </h1>
+</div>
