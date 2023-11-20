@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { TuiLoaderModule } from '@taiga-ui/core/components/loader';
 import { TuiPrimitiveTextfieldModule, TuiButtonModule, TuiErrorModule,TuiDialogContext } from '@taiga-ui/core';
 import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
-import {POLYMORPHEUS_CONTEXT} from '@tinkoff/ng-polymorpheus';
+import { POLYMORPHEUS_CONTEXT } from '@tinkoff/ng-polymorpheus';
 
 @Component({
     selector: 'app-login',
@@ -27,16 +27,12 @@ export class LoginComponent {
     password: new FormControl('', Validators.required),
   });
 
-  ResponseData: any
-
   async onSubmit(LoginForm:FormGroup) {
     this.enabled = false
     this.loading = true
     const data = this.authService.login(LoginForm.value.mail,LoginForm.value.password)
     const response = await lastValueFrom(data)
-    this.ResponseData = response
-    console.log(this.ResponseData)
-    if (this.ResponseData.success == 0) {
+    if (response.success == 0) {
       this.enabled = true
       console.log('error')
       this.loading = false
