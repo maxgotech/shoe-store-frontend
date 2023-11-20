@@ -1,1 +1,77 @@
-<p>reg works!</p>
+<form  [formGroup]="RegForm">
+
+    <div class="heading centering">
+        <span>Регистрация</span>
+    </div>
+
+    <p>
+        <tui-input
+            formControlName="mail"
+        >
+            Введите почту &#64;mail
+            <span class="tui-required"></span>
+            <input
+                placeholder="mail@mail.ru"
+                tuiTextfield
+            />
+        </tui-input>
+    </p>
+    
+    <p>
+        <tui-input-password
+        formControlName="password"
+        class="tui-space_top-2"
+    >
+        Введите пароль
+        <input
+            placeholder="Выбирайте надежный пароль!"
+            tuiTextfield
+        />
+    </tui-input-password>
+    </p>
+
+    <p>
+        <tui-input
+            formControlName="name"
+        >
+            Введите ваше имя
+            <span class="tui-required"></span>
+            <input
+                tuiTextfield
+            />
+        </tui-input>
+    </p>
+
+    <p>
+        <tui-input
+            formControlName="surname"
+        >
+            Введите вашу фамилию
+            <span class="tui-required"></span>
+            <input
+                tuiTextfield
+            />
+        </tui-input>
+    </p>
+
+    <p class="buttton-container">
+        <tui-loader
+        class="loader"
+        [inheritColor]="true"
+        [overlay]="true"
+        [showLoader]=loading
+    >
+        <button
+            tuiButton
+            [disabled]="!RegForm.valid"
+            type="button"
+            class="tui-space_right-3 tui-space_bottom-3"
+            (click)="onSubmit(RegForm)"
+        >
+            Войти
+        </button>
+    </tui-loader>
+    </p>
+    <tui-error class="error" [error]="computedError"></tui-error>
+  
+  </form>
