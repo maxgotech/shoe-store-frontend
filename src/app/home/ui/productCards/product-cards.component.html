@@ -37,9 +37,11 @@
                 <dt *ngIf="product.price!=null; else free">{{product.price}} ₽</dt>
                 <ng-template #free > Бесплатно </ng-template>
               </div>
+              <div class="cart" (click)="AddToCart(product.name,product.id)" >
+                <dt><tui-svg src="tuiIconShoppingCartLarge"></tui-svg></dt>
+              </div>
             </dl>
           </div>
       </div>
     </div>
   </body>
-  

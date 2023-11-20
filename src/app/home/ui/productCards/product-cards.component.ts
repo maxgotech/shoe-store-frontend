@@ -1,5 +1,11 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common';
+import { TuiSvgModule } from '@taiga-ui/core';
+
+interface Cart {
+  name: string
+  id: number
+}
 
 @Component({
     selector: 'app-product-cards',
@@ -7,16 +13,20 @@ import { NgIf, NgFor } from '@angular/common';
     styleUrls: ['./product-cards.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [NgIf, NgFor]
+    imports: [NgIf, NgFor,TuiSvgModule]
 })
 export class ProductCardsComponent implements OnChanges {
 
   @Input() products:any
 
-  @Output() AddCart = new EventEmitter<number>();
+  @Output() AddCart = new EventEmitter<Cart>();
 
-  AddToCart(id:number){
-    this.AddCart.emit(id)
+  AddToCart(name:string,id:number){
+    const cart:Cart = {
+      name:name,
+      id:id
+    }
+    this.AddCart.emit(cart)
   }
 
   constructor(){}
