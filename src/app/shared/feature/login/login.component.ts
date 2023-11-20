@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { lastValueFrom } from 'rxjs';
 import { TuiValidationError } from '@taiga-ui/cdk';
 import { AuthService } from '../../data-access/auth.service';
@@ -28,10 +28,10 @@ export class LoginComponent {
 
   ResponseData: any
 
-  async onSubmit() {
+  async onSubmit(Form:FormGroup) {
     this.enabled = false
     this.loading = true
-    const data = this.authService.login(this.LoginForm.value.mail!, this.LoginForm.value.password!)
+    const data = this.authService.login(Form.value.mail!,Form.value.password!)
     const response = await lastValueFrom(data)
     this.ResponseData = response
     console.log(this.ResponseData)
