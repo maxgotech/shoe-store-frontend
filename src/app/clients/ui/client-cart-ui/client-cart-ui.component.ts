@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import { TuiLoaderModule, TuiButtonModule } from '@taiga-ui/core';
 import { TuiCheckboxModule } from '@taiga-ui/kit';
 import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
@@ -16,6 +16,10 @@ interface product {
   picture_path: string
 }
 
+interface buy_product {
+  id:number
+}
+
 @Component({
   selector: 'app-client-cart-ui',
   standalone: true,
@@ -29,6 +33,12 @@ export class ClientCartUiComponent implements OnChanges {
   }
 
   @Input() productDto!: productdto
+
+  @Output() buyingProducts = new EventEmitter<buy_product[]>();
+
+  buy_prods(prods:buy_product[]){
+    this.buyingProducts.emit(prods)
+  }
 
   cartStatus: boolean = true // статус корзины false-пусто/true-есть товары
 
@@ -67,12 +77,16 @@ export class ClientCartUiComponent implements OnChanges {
         bought = bought.concat(prods[i])
       }
     }
-    // TODO send that to parent
+    
     if(bought.length==0){
       console.log('nothing')
     } else
     {
-      console.log(bought)
+    let prodids:buy_product[] = []
+    bought.forEach(element => {
+      prodids.push(element.id)
+    });
+    this.buy_prods(prodids)
     }
   }
 
