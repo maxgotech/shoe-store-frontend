@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 interface productdto {
   products?: product[]
   empty: boolean
+  fullprice:number
 }
 
 interface product {

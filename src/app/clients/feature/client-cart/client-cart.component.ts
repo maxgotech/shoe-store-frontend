@@ -9,6 +9,7 @@ import { map } from 'rxjs';
 
 interface productdto {
   products?:product[]
+  fullprice:number
   empty:boolean
 }
 
@@ -55,6 +56,7 @@ export class ClientCartComponent implements OnInit {
   productDto!:productdto
   products:product[] = []
   cart:any
+  cartprice:number = 0
 
   async FindCart(){
     this.products = []
@@ -62,18 +64,21 @@ export class ClientCartComponent implements OnInit {
     this.clientService.findCart(this.user.data.id).pipe(map((carts)=>{
       carts.forEach(element => {
         this.products = this.products!.concat(element.product)
+        this.cartprice +=element.product.price
         this.cart = this.cart.concat(element)
       });
     })).subscribe((data)=>{
       if(this.products.length==0){
         this.productDto = {
-          empty:true
+          empty:true,
+          fullprice:this.cartprice
         }
       } else
       {
         this.productDto = {
           products:this.products,
-          empty: false
+          empty: false,
+          fullprice:this.cartprice
         }
       }
       this.cdr.detectChanges()
