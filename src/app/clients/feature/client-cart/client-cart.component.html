@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
     <app-nav-bar-ui></app-nav-bar-ui>
-    <app-client-cart-ui [productDto]="productDto"></app-client-cart-ui>
+    <app-client-cart-ui (buyingProducts)="buy_products($event)"  [productDto]="productDto"></app-client-cart-ui>
 </div>
 <app-footer-ui></app-footer-ui>
