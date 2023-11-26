@@ -46,13 +46,13 @@ interface buyProductDto {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientCartComponent implements OnInit { 
-  constructor(private authService:AuthService, private clientService:ClientsService, private cdr: ChangeDetectorRef){}
+  constructor(private clientService:ClientsService, private cdr: ChangeDetectorRef){}
   
   ngOnInit(): void {
     this.FindCart()
   }
 
-  user = this.authService.currentUserValue
+  user = this.clientService.ClientInfo()
   productDto!:productdto
   products:product[] = []
   cart:any

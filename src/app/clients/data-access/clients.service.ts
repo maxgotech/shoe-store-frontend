@@ -49,4 +49,11 @@ export class ClientsService {
     return this.http.delete<any>('purchaseApi/api/cart/'+id)
   }
 
+  allProducts(id:number){
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("userid",id);
+    queryParams = queryParams.append("type",'shoes');
+    return this.http.get<any>('markupApi/stock/stockby/params',{params:queryParams})
+  }
+
 }
