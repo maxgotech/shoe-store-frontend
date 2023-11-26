@@ -20,6 +20,17 @@ interface product {
   picture_path:string
 }
 
+interface prodIds {
+  id:number
+}
+
+interface buyProductDto {
+  quantity:number
+  markup:number
+  productId:prodIds
+  userId:number
+}
+
 @Component({
   selector: 'app-client-cart',
   standalone: true,
@@ -44,11 +55,15 @@ export class ClientCartComponent implements OnInit {
   user = this.authService.currentUserValue
   productDto!:productdto
   products:product[] = []
+  cart:any
 
   async FindCart(){
+    this.products = []
+    this.cart = []
     this.clientService.findCart(this.user.data.id).pipe(map((carts)=>{
       carts.forEach(element => {
         this.products = this.products!.concat(element.product)
+        this.cart = this.cart.concat(element)
       });
     })).subscribe((data)=>{
       if(this.products.length==0){
@@ -64,5 +79,27 @@ export class ClientCartComponent implements OnInit {
       }
       this.cdr.detectChanges()
     })
+  }
+
+  async buy_products(prods:prodIds[]){
+    prods.forEach(async prodid => {
+      const obj:buyProductDto = {
+        quantity:1,
+        markup:0,
+        productId:prodid,
+        userId:this.user.data.id
+      }
+      this.clientService.buyProducts(obj).subscribe((data)=>{
+        console.log('bought')
+      })
+      this.cart.forEach((element: any) => {
+        if(element.product.id==prodid){
+          this.clientService.deleteProdFromCart(element.id).subscribe((data)=>{
+            console.log('deleted')
+          })
+        }
+      });
+    });
+    this.FindCart()
   }
 }
