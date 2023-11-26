@@ -4,7 +4,6 @@ import { ClientCartUiComponent } from '../../ui/client-cart-ui/client-cart-ui.co
 import { HeaderComponent } from 'src/app/shared/feature/header/header.component';
 import { FooterUiComponent } from 'src/app/shared/ui/footer-ui/footer-ui.component';
 import { NavBarUiComponent } from '../../ui/nav-bar-ui/nav-bar-ui.component';
-import { AuthService } from 'src/app/shared/data-access/auth.service';
 import { ClientsService } from '../../data-access/clients.service';
 import { map } from 'rxjs';
 
