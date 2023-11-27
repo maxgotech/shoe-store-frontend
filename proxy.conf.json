@@ -19,7 +19,7 @@
     "target": "https://api-info-sales.onrender.com",
     "secure": true,
     "pathRewrite": {
-      "^/purchaseApi": ""
+      "^/salesApi": ""
     },
     "changeOrigin": true
   }
