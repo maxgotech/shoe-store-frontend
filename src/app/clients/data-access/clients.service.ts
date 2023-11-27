@@ -75,8 +75,12 @@ export class ClientsService {
     return this.http.patch<any>('markupApi/markup/add',markup)
   }
 
-  salesInfo(sales:SalesInfo){
+  genOrders(sales:SalesInfo){
     return this.http.post<any>('salesApi/gen_orders/',sales)
+  }
+
+  salesInfo(sales:any){
+    return this.http.post<any>('salesApi/info_data/',sales)
   }
 
 }
