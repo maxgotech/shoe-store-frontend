@@ -1,18 +1,26 @@
 {
-    "/markupApi": {
-      "target": "https://api-markup-service.onrender.com",
-      "secure": true,
-      "pathRewrite": {
-        "^/markupApi": ""
-      },
-      "changeOrigin": true
+  "/markupApi": {
+    "target": "https://api-markup-service.onrender.com",
+    "secure": true,
+    "pathRewrite": {
+      "^/markupApi": ""
     },
-    "/purchaseApi": {
-      "target": "https://api-purchase-service.onrender.com",
-      "secure": true,
-      "pathRewrite": {
-        "^/purchaseApi": ""
-      },
-      "changeOrigin": true
-    }
+    "changeOrigin": true
+  },
+  "/purchaseApi": {
+    "target": "https://api-purchase-service.onrender.com",
+    "secure": true,
+    "pathRewrite": {
+      "^/purchaseApi": ""
+    },
+    "changeOrigin": true
+  },
+  "/salesApi": {
+    "target": "https://api-info-sales.onrender.com",
+    "secure": true,
+    "pathRewrite": {
+      "^/purchaseApi": ""
+    },
+    "changeOrigin": true
+  }
 }
