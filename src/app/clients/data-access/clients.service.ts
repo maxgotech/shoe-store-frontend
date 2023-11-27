@@ -83,4 +83,16 @@ export class ClientsService {
     return this.http.post<any>('salesApi/info_data/',sales)
   }
 
+  analysis_Dynamic(data:any){
+    return this.http.post<any>('analysisApi/dynamic_sells/',data)
+  }
+
+  analysis_ABC(data:any){
+    return this.http.post<any>('analysisApi/abc/',data)
+  }
+
+  analysis_XYZ(data:any){
+    return this.http.post<any>('analysisApi/xyz/',data)
+  }
+
 }
