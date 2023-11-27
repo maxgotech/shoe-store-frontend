@@ -1,1 +1,51 @@
-<p>client-sales-ui works!</p>,
+<div class="page">
+    <h1 class="sales">Продажи:</h1>
+    <h2>На сколько месяцев хотите сгенерировать продажи</h2>
+    <form (ngSubmit)="submit()">
+        <tui-input-number [min]="1" [formControl]="control" class="b-form">
+            Введите количество месяцев
+        </tui-input-number>
+        <button tuiButton type="submit"><span>Генерация продаж</span></button>
+    </form>
+    <tui-loader [overlay]="true" [showLoader]=loading_sales>
+        <ng-container *ngIf="loading_sales;else loaded">
+            <div class="loader"></div>
+        </ng-container>
+        <ng-template #loaded>
+            <ng-container *ngIf="show_sales">
+                <table tuiTable [columns]="columns">
+                    <thead>
+                        <tr tuiThGroup>
+                            <th *tuiHead="'date'" tuiTh>
+                                Дата
+                            </th>
+                            <th *tuiHead="'earnings'" tuiTh>
+                                Продажи за месяц
+                            </th>
+                        </tr>
+                    </thead>
+                    <ng-container *ngFor="let month of sales?.all_month">
+                        <tbody [heading]=heading tuiTbody [data]="month.final_price_for_product">
+                            <tr *ngFor="let prod of month.final_price_for_product; let index = index" tuiTr>
+                                <td *tuiCell="'date'" tuiTd>
+                                    {{ index + 1 }}. {{ prod.name }}
+                                </td>
+                                <td *tuiCell="'earnings'" tuiTd>
+                                    <a>
+                                        {{ prod.price | number: '1.'}}₽
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <ng-template #heading>
+                            <div class="heading">
+                                <span style="width: 250px;">{{month.date}}</span>
+                                <span style="width: 250px;">{{month.final_price_for_all_products | number: '1.'}}₽</span>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </table>
+            </ng-container>
+        </ng-template>
+    </tui-loader>
+</div>
