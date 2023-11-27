@@ -22,5 +22,13 @@
       "^/salesApi": ""
     },
     "changeOrigin": true
+  },
+  "/analysisApi": {
+    "target": "https://api-analysis-data.onrender.com",
+    "secure": true,
+    "pathRewrite": {
+      "^/analysisApi": ""
+    },
+    "changeOrigin": true
   }
 }
