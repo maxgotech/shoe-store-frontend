@@ -20,7 +20,7 @@
                                     <span>{{productDto.products![i].name}}</span>
                                 </div>
                                 <div class="price">
-                                    <span>{{productDto.products![i].price}}₽</span>
+                                    <span>{{productDto.products![i].price | number: '2.'}}₽</span>
                                 </div>
                             </div>
                             <div class="checkbox">
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                     </div>
-                    <h1 class="fullprice">Стоимость: {{productDto.fullprice}}₽</h1>
+                    <h1 class="fullprice">Стоимость: {{productDto.fullprice | number: '2.'}}₽</h1>
                     <button tuiButton type="submit">Купить</button>
                 </form>
             </ng-container>
