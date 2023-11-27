@@ -49,7 +49,6 @@ export class ClientProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProds()
-    console.log(this.user)
   }
 
   productDto!:productdto
