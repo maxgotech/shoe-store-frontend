@@ -37,11 +37,11 @@
                     <h1 class="fullprice">Стоимость: {{productDto.fullprice | number: '2.'}}₽</h1>
                     <h1 class="fullprice">Стоимость с наценкой: {{productDto.fullprice_with_markup | number: '2.'}}₽</h1>
                     <tui-input-number
-                    [min]="0"
-                    [formControl]="control"
-                    class="b-form">
-                    Введите наценку
-                </tui-input-number>
+                        [min]="0"
+                        [formControl]="control"
+                        class="b-form">
+                        Введите наценку
+                    </tui-input-number>
                     <button tuiButton type="submit"><span>Добавить наценку на выбранные товары</span></button>
                 </form>
             </ng-container>
