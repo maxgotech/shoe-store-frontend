@@ -29,6 +29,16 @@ interface markup {
   markup:number
 }
 
+interface SalesInfo {
+  count_mounth:number,
+  all_products:SalesProd[]
+}
+
+interface SalesProd {
+  product:string
+  price:number
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -63,6 +73,10 @@ export class ClientsService {
 
   addMarkup(markup:markup[]){
     return this.http.patch<any>('markupApi/markup/add',markup)
+  }
+
+  salesInfo(sales:SalesInfo){
+    return this.http.post<any>('salesApi/gen_orders/',sales)
   }
 
 }
