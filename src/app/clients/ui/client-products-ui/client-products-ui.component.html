@@ -1,1 +1,52 @@
-<p>client-products-ui works!</p>,
+<div class="page">
+    <h1 class="products">Товары:</h1>
+    <tui-loader [overlay]="true" [showLoader]=loading>
+        <ng-container *ngIf="loading;else loaded">
+            <div class="loader"></div>
+        </ng-container>
+        <ng-template #loaded>
+            <ng-container *ngIf="prodStatus;else empty">
+                <form [formGroup]="myGroup" (ngSubmit)="submit()">
+                    <div class="card-container"
+                        *ngFor="let category of myGroup.controls['myCategory'].controls; let i = index;let last = last"
+                        [ngClass]="{'last-child': last}">
+                        <div class="card">
+                            <div class="base_row">
+                                <div class="img-container">
+                                    <img class="pic"
+                                        src='/assets/images/products{{productDto.products![i].picture_path}}'>
+                                </div>
+                                <div class="name">
+                                    <span>{{productDto.products![i].name}}</span>
+                                </div>
+                                <div class="price">
+                                    <span>{{productDto.products![i].price | number: '2.'}}₽</span>
+                                </div>
+                                <div class="markup">
+                                    <span>{{productDto.products![i].markup}}%</span>
+                                </div>
+                                <div class="price">
+                                    <span>{{productDto.products![i].price_with_markup | number: '2.'}}₽</span>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <tui-checkbox [formControl]="category" size="l"></tui-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="fullprice">Стоимость: {{productDto.fullprice | number: '2.'}}₽</h1>
+                    <h1 class="fullprice">Стоимость с наценкой: {{productDto.fullprice_with_markup | number: '2.'}}₽</h1>
+                    <tui-input-number
+                    [formControl]="control"
+                    class="b-form">
+                    Введите наценку
+                </tui-input-number>
+                    <button tuiButton type="submit"><span>Добавить наценку на выбранные товары</span></button>
+                </form>
+            </ng-container>
+            <ng-template #empty>
+                <h1 class="empty">Корзина пуста</h1>
+            </ng-template>
+        </ng-template>
+    </tui-loader>
+</div>
