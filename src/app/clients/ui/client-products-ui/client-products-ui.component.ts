@@ -104,6 +104,7 @@ export class ClientProductsUiComponent implements OnChanges {
     } else {
       this.MarkupAdd(addMarkup)
     }
+    this.control.setValue(0)
   }
 
 }
