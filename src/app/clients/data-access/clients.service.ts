@@ -24,6 +24,11 @@ interface prodIds {
   id:number
 }
 
+interface markup {
+  Id:number
+  markup:number
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,6 +59,10 @@ export class ClientsService {
     queryParams = queryParams.append("userid",id);
     queryParams = queryParams.append("type",'shoes');
     return this.http.get<any>('markupApi/stock/stockby/params',{params:queryParams})
+  }
+
+  addMarkup(markup:markup[]){
+    return this.http.patch<any>('markupApi/markup/add',markup)
   }
 
 }
