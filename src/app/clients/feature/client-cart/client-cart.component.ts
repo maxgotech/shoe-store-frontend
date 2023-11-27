@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { ClientCartUiComponent } from '../../ui/client-cart-ui/client-cart-ui.component';
 import { HeaderComponent } from 'src/app/shared/feature/header/header.component';
 import { FooterUiComponent } from 'src/app/shared/ui/footer-ui/footer-ui.component';
 import { NavBarUiComponent } from '../../ui/nav-bar-ui/nav-bar-ui.component';
 import { ClientsService } from '../../data-access/clients.service';
 import { map } from 'rxjs';
+import { TuiAlertService } from '@taiga-ui/core';
 
 interface productdto {
   products?:product[]
@@ -46,7 +47,7 @@ interface buyProductDto {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientCartComponent implements OnInit { 
-  constructor(private clientService:ClientsService, private cdr: ChangeDetectorRef){}
+  constructor(@Inject(TuiAlertService) private readonly alerts: TuiAlertService, private clientService:ClientsService, private cdr: ChangeDetectorRef){}
   
   ngOnInit(): void {
     this.FindCart()
@@ -105,5 +106,13 @@ export class ClientCartComponent implements OnInit {
       });
     });
     this.FindCart()
+    this.showNotification()
   }
+
+  showNotification(): void {
+    this.alerts
+      .open('',{ label: 'Товары успешно приобретены!' })
+      .subscribe();
+  }
+
 }
