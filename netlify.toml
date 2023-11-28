@@ -1,26 +1,26 @@
 [[redirects]]
-  from = "/markupApi/*"
-  to = "https://api-markup-service.onrender.com""
-  status = 200
-  force = true
+from = "/markupApi/*"
+to = "https://api-markup-service.onrender.com""
+status = 200
+force = true
 
 
 [[redirects]]
-  from = "/purchaseApi/*"
-  to = "https://api-purchase-service.onrender.com"
-  status = 200
-  force = true
+from = "/purchaseApi/*"
+to = "https://api-purchase-service.onrender.com"
+status = 200
+force = true
 
 
 [[redirects]]
-  from = "/salesApi/*"
-  to = "https://api-info-sales.onrender.com"
-  status = 200
-  force = true
+from = "/salesApi/*"
+to = "https://api-info-sales.onrender.com"
+status = 200
+force = true
 
 
 [[redirects]]
-  from = "/analysisApi/*"
-  to = "https://api-analysis-data.onrender.com""
-  status = 200
-  force = true
+from = "/analysisApi/*"
+to = "https://api-analysis-data.onrender.com""
+status = 200
+force = true
