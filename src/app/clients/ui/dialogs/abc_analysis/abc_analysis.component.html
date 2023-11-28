@@ -1,0 +1,39 @@
+<table tuiTable [columns]="columns">
+    <thead>
+        <tr tuiThGroup>
+            <th *tuiHead="'prod'" tuiTh>
+                Товар
+            </th>
+            <th *tuiHead="'abc'" tuiTh>
+                ABC
+            </th>
+            <th *tuiHead="'part'" tuiTh>
+                Часть
+            </th>
+            <th *tuiHead="'sum_part'" tuiTh>
+                Полная часть
+            </th>
+        </tr>
+    </thead>
+    <tbody tuiTbody [data]="data">
+        <tr *ngFor="let prod of data; let index = index" tuiTr>
+            <td *tuiCell="'prod'" tuiTd>
+                {{ index + 1 }}. {{ prod.product }}
+            </td>
+            <td *tuiCell="'abc'" tuiTd>
+                {{ prod.abc }}
+            </td>
+            <td *tuiCell="'part'" tuiTd>
+                <a>
+                    {{ prod.part }}%
+                </a>
+            </td>
+            <td *tuiCell="'sum_part'" tuiTd>
+                <a>
+                    {{ prod.sum_part }}%
+                </a>
+            </td>
+        </tr>
+    </tbody>
+   
+</table>
