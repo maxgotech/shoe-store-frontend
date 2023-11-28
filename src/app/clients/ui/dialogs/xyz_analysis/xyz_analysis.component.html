@@ -1,0 +1,31 @@
+<table tuiTable [columns]="columns">
+    <thead>
+        <tr tuiThGroup>
+            <th *tuiHead="'prod'" tuiTh>
+                Товар
+            </th>
+            <th *tuiHead="'xyz'" tuiTh>
+                XYZ
+            </th>
+            <th *tuiHead="'coef_var'" tuiTh>
+                Коэф. вариативности
+            </th>
+        </tr>
+    </thead>
+    <tbody tuiTbody [data]="data">
+        <tr *ngFor="let prod of data; let index = index" tuiTr>
+            <td *tuiCell="'prod'" tuiTd>
+                {{ index + 1 }}. {{ prod.product }}
+            </td>
+            <td *tuiCell="'abc'" tuiTd>
+                {{ prod.xyz }}
+            </td>
+            <td *tuiCell="'coef_var'" tuiTd>
+                <a>
+                    {{ prod.coef_var }}%
+                </a>
+            </td>
+        </tr>
+    </tbody>
+   
+</table>
