@@ -29,7 +29,7 @@ export class HomeService {
   private requestProducts() {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("type",'shoes');
-    return this.http.get<any>('/purchaseApi/api/products',{params:queryParams});
+    return this.http.get<any>('https://api-purchase-service.onrender.com/api/products',{params:queryParams});
   }
 
   addToCart(productId:number, userId:number){
