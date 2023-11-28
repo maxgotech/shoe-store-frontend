@@ -1,27 +1,27 @@
 # API наценки
 [[redirects]]
-  from = "/markupApi"
-  to = "https://api-markup-service.onrender.com"
+  from = "/markupApi/*"
+  to = "https://api-markup-service.onrender.com/:splat"
   status = 200
   force = true
 
 # API покупки
 [[redirects]]
-  from = "/purchaseApi"
-  to = "https://api-purchase-service.onrender.com"
+  from = "/purchaseApi/*"
+  to = "https://api-purchase-service.onrender.com/:splat"
   status = 200
   force = true
 
 # API продаж
 [[redirects]]
-  from = "/salesApi"
-  to = "https://api-info-sales.onrender.com"
+  from = "/salesApi/*"
+  to = "https://api-info-sales.onrender.com/:splat"
   status = 200
   force = true
 
 # API анализа
 [[redirects]]
-  from = "/analysisApi"
-  to = "https://api-analysis-data.onrender.com"
+  from = "/analysisApi/*"
+  to = "https://api-analysis-data.onrender.com/:splat"
   status = 200
   force = true
