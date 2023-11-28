@@ -1,7 +1,7 @@
 # API наценки
 [[redirects]]
   from = "/markupApi/*"
-  to = "https://api-markup-service.onrender.com""
+  to = "https://api-markup-service.onrender.com"
   status = 200
   force = true
 
@@ -22,6 +22,6 @@
 # API анализа
 [[redirects]]
   from = "/analysisApi/*"
-  to = "https://api-analysis-data.onrender.com""
+  to = "https://api-analysis-data.onrender.com"
   status = 200
   force = true
