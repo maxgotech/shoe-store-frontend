@@ -18,7 +18,6 @@ export class AbcAnalysisComponent {
   constructor(@Inject(TuiDialogService) private readonly dialogs: TuiDialogService,
   @Inject(POLYMORPHEUS_CONTEXT) private readonly context: TuiDialogContext<number, number>) { 
     this.data=this.getData
-    console.log(this.data[0])
   }
 
   showDialog(content: TemplateRef<TuiDialogContext>): void {
