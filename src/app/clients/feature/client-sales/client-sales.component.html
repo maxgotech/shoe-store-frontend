@@ -1,6 +1,15 @@
 <app-header></app-header>
 <div class="container">
     <app-nav-bar-ui></app-nav-bar-ui>
-    <app-client-sales-ui [sales]="sales" (month_gen)="GenSales($event)" ></app-client-sales-ui>
+    <app-client-sales-ui
+        [sales]="sales"
+        [dynamic_loader]="dynamic_loader"
+        [abc_loader]="abc_loader"
+        [xyz_loader]="xyz_loader"
+        (month_gen)="GenSales($event)"
+        (dynamic_analysis)="dynamic_analysis($event)"
+        (abc_analysis)="abc_analysis($event)"
+        (xyz_analysis)="xyz_analysis($event)"
+    ></app-client-sales-ui>
 </div>
 <app-footer-ui></app-footer-ui>
