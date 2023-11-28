@@ -49,14 +49,39 @@ export class ClientSalesUiComponent implements OnChanges {
 
   @Input() sales:info_sales | undefined
 
+  @Input() dynamic_loader:boolean = false
+
+  @Input() abc_loader:boolean = false
+
+  @Input() xyz_loader:boolean = false
+
   @Output() month_gen = new EventEmitter<number>()
+
+  @Output() dynamic_analysis= new EventEmitter<boolean>()
+
+  @Output() abc_analysis = new EventEmitter<boolean>()
+
+  @Output() xyz_analysis= new EventEmitter<boolean>()
 
   loading_sales: boolean = false; // лоадер работает пока не получены данные
 
   show_sales:boolean = false // показываем данные о покупках после их получения
+  
 
   send_month(month:number){
     this.month_gen.emit(month)
+  }
+
+  send_dynamyc_analysis(){
+    this.dynamic_analysis.emit(true)
+  }
+
+  send_abc_analysis(){
+    this.abc_analysis.emit(true)
+  }
+
+  send_xyz_analysis(){
+    this.xyz_analysis.emit(true)
   }
 
   readonly control = new FormControl(1);

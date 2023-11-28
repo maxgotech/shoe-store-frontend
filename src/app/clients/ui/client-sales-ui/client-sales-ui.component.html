@@ -9,7 +9,7 @@
     </form>
     <tui-loader [overlay]="true" [showLoader]=loading_sales>
         <ng-container *ngIf="loading_sales;else loaded">
-            <div class="loader"></div>
+            <div class="loader-container"></div>
         </ng-container>
         <ng-template #loaded>
             <ng-container *ngIf="show_sales">
@@ -39,12 +39,37 @@
                         </tbody>
                         <ng-template #heading>
                             <div class="heading">
-                                <span style="width: 250px;">{{month.date}}</span>
-                                <span style="width: 250px;">{{month.final_price_for_all_products | number: '1.'}}₽</span>
+                                <span>{{month.date}}</span>
+                                <span>{{month.final_price_for_all_products | number: '1.'}}₽</span>
                             </div>
                         </ng-template>
                     </ng-container>
                 </table>
+                <div class="analysis">
+                    <p>
+                        <tui-loader
+                        [inheritColor]="true"
+                        [overlay]="true"
+                        [showLoader]=xyz_loader
+                        >
+                            <button type="button" (click)="send_xyz_analysis()" size="m" tuiButton><span>XYZ анализ</span></button>
+                        </tui-loader>
+                    </p>
+                    <tui-loader
+                        [inheritColor]="true"
+                        [overlay]="true"
+                        [showLoader]=abc_loader!
+                    >
+                    <button (click)="send_abc_analysis()" size="m" tuiButton><span>ABC анализ</span></button>
+                    </tui-loader>
+                    <tui-loader
+                        [inheritColor]="true"
+                        [overlay]="true"
+                        [showLoader]=dynamic_loader
+                    > 
+                    <button (click)="send_dynamyc_analysis()" size="m" tuiButton><span>Динамика продаж</span></button>
+                    </tui-loader>
+                </div>
             </ng-container>
         </ng-template>
     </tui-loader>
